@@ -1,5 +1,11 @@
 require "tag/version"
 
-module Tag
-  # Your code goes here...
-end
+#module Tag
+  class Nutrition
+	  attr_accessor :name_tag
+	  def initialize(name_tag)
+		  @name_tag = name_tag
+	  end
+  end
+
+#end
