@@ -6,7 +6,7 @@ RSpec.describe Tag do
   it "does something useful" do
   	expect(false).to eq(false)
   end
-  @@tag1 = Nutrition.new("Pedro")
+  @@tag1 = Nutrition.new("Pedro",98)
   it "name_tag se almacena correctamente conteniendo la palabra 'Pedro'" do
   	expect(@@tag1.name_tag).to eq("Pedro")
   end

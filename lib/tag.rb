@@ -2,9 +2,9 @@ require "tag/version"
 
 #module Tag
   class Nutrition
-	  attr_accessor :name_tag
-	  def initialize(name_tag)
-		  @name_tag = name_tag
+	  attr_accessor :name_tag, :energetic_value
+	  def initialize(name_tag, energetic_value)
+		  @name_tag, @energetic_value = name_tag, energetic_value
 	  end
   end
 
