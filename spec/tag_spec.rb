@@ -35,5 +35,9 @@ RSpec.describe Tag do
 	  expect(@@tag1.protein).to eq(16)
   end
 
+  it "salt se almacena correctamente conteniendo la variable '460' (mg)" do
+	  expect(@@tag1.salt).to eq(460)
+  end
+
 end
 
