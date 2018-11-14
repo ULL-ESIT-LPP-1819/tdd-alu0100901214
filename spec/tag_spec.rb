@@ -26,5 +26,10 @@ RSpec.describe Tag do
   it "hc se almacena correctamente conteniendo la variable '4'(g)" do
 	  expect(@@tag1.hc).to eq(4)
   end
+
+  it "sugars se almacena correctamente conteniendo la variable '4' (g)" do
+	  expect(@@tag1.sugars).to eq(4)
+  end
+
 end
 
