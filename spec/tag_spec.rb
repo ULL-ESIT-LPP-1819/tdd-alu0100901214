@@ -11,8 +11,12 @@ RSpec.describe Tag do
   	expect(@@tag1.name_tag).to eq("Pedro")
   end
 
-  it "energetic_value se almacena correctamente conteniendo la variable" do
+  it "energetic_value se almacena correctamente conteniendo la variable '98' (cal)" do
 	expect(@@tag1.energetic_value).to eq(98)
+  end
+
+  it "q_fats se almacena correctamente conteniendo la variable '2' (g) " do
+	  expect(@@tag1.energetic_value).to eq(2)
   end
 end
 
