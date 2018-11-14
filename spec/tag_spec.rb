@@ -22,5 +22,9 @@ RSpec.describe Tag do
   it "q_fats_sat se almacena correctamente conteniendo la variable '1.5' (g)" do
 	  expect(@@tag1.q_fats_sat).to eq(1.5)
   end
+
+  it "hc se almacena correctamente conteniendo la variable '4'(g)" do
+	  expect(@@tag1.hc).to eq(4)
+  end
 end
 
