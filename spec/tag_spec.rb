@@ -31,5 +31,9 @@ RSpec.describe Tag do
 	  expect(@@tag1.sugars).to eq(4)
   end
 
+  it "protein se almacena correctamente conteniendo la variable '16' (g)" do
+	  expect(@@tag1.protein).to eq(16)
+  end
+
 end
 
