@@ -11,7 +11,7 @@ require "tag/version"
 	  end
 	  
 	  def cal
-		
+		(q_fats*9)+(hc*4)+(protein*4)+(salt*6)	
 	  end
   end  
   
