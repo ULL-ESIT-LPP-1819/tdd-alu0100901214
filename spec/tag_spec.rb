@@ -61,9 +61,15 @@ RSpec.describe Tag do
 end
 
 RSpec.describe List do
+	
 	it "Crear una lista"  do
-		List.new(4)
+		@list1 = List.new(4)
 	end
+	
+	it "Inserta un nodo por la cabeza" do
+		List.new(4).push_head(5)
+	end
+
 end
 
 

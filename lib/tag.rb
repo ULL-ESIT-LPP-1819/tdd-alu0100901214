@@ -30,8 +30,12 @@ require "tag/version"
 	Node = Struct.new(:value, :next, :prev)
   	attr_accessor :head, :tail
 	def initialize(val)
-		node1 = Node.new(val, nil, nil)
-		@head, @tail = node1, node1
+		node = Node.new(val, nil, nil)
+		@head, @tail = node, node
+	end
+
+	def push_head
+ 				
 	end	
   end
 
