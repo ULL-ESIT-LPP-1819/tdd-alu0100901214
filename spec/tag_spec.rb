@@ -78,9 +78,9 @@ RSpec.describe List do
 	it "Comprobación de la traza (to_s)" do
 		@@list2 = List.new(8)
 		@@list2.push_head(7)
-		@@list2.push_head(6)
-		expect(@@list2.to_s).to eq("6 7 8")	
+		expect(@@list2.to_s).to eq("7 8")	
 	end
+
 end
 
 

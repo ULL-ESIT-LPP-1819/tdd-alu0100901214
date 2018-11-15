@@ -35,7 +35,18 @@ require "tag/version"
 	end
 	
 	def to_s
-		
+		node = @head
+                check = false
+		string = ""
+		while(check==false) do
+			string = string + "#{node.value} "
+			if(node!=tail)
+				node=@head.next
+			elsif(node==tail)
+				check=true
+			end
+		end
+		string[0,string.size-1]
 	end
 
 	def push_head(val)
