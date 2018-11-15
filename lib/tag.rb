@@ -25,12 +25,13 @@ require "tag/version"
  		((cal/2000)*100*100).floor / 100.0	  
 	  end
   end  
-  
-  Node = Struct.new(:value, :next, :prev)
 
   class List
-  	def initialize
-	
+	Node = Struct.new(:value, :next, :prev)
+  	attr_accessor :head, :tail
+	def initialize(val)
+		node1 = Node.new(val, nil, nil)
+		@head, @tail = node1, node1
 	end	
   end
 
