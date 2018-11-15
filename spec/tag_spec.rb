@@ -61,7 +61,9 @@ RSpec.describe Tag do
 end
 
 RSpec.describe List do
-  
+	it "Crear una lista"  do
+		List.new(4)
+	end
 end
 
 

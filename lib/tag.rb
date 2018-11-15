@@ -30,13 +30,7 @@ require "tag/version"
 
   class List
   	def initialize
-		@head, @tail = Node.new, Node.new
-		@size = 0
-	end	
 	
-	def push_head(nodo)
-		#nodo.next = @head
-		#@size = @size + 1
-	end
+	end	
   end
 
