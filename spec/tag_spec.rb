@@ -54,6 +54,10 @@ RSpec.describe Tag do
   it "Calculo de la Ingesta de Referencia (IR) de las cal en %" do
 	expect(@@tag1.cal_ir).to eq(5.03)
   end
+
+  it "Comprobación del método to_s" do
+	  expect(@@tag1.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
+  end
 end
 
 RSpec.describe List do
