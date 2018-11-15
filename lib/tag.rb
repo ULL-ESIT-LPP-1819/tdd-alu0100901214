@@ -5,6 +5,13 @@ require "tag/version"
 	  def initialize(name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt)
 		  @name_tag, @energetic_value, @q_fats, @q_fats_sat, @hc, @sugars, @protein, @salt = name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt
 	  end
+
+	  def kj
+	  	(q_fats*37)+(hc*17)+(protein*17)+(salt*25)
+	  end
+	  
+	  
+	  
   end  
   
   Node = Struct.new(:value, :next, :prev)
