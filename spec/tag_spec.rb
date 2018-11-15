@@ -48,7 +48,7 @@ RSpec.describe Tag do
   end
 
   it "Calculo de la Ingesta de Referencia (IR)" do
-  	expect(@@tag1.kj_ir).to eq(5.065)
+  	expect(@@tag1.kj_ir).to eq(5.06)
   end
 end
 

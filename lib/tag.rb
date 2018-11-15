@@ -15,7 +15,7 @@ require "tag/version"
 	  end
 
 	  def kj_ir
-		
+		((kj/8400)*100*100).floor / 100.0	
 	  end
   end  
   
