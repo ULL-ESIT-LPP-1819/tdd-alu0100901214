@@ -91,7 +91,35 @@ RSpec.describe List do
 		@@list2.pop_tail
 		expect(@@list2.to_s).to eq("8")
 	end
+	
+	# Comprobación directa sin usar la metodología TDD
+	it "Comprobación de que se pueden almacenar etiquetas" do
+		list = (List.new(@@tag1))
+		expect(list.head.value.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
+	end
+	
+	it "Compruebo de que la variable size funcione" do
+		list = (List.new(2))
+		list.push_tail(3)
+		expect(list.size).to eq(2)
+		list.push_tail(4)
+		expect(list.size).to eq(3)
+		list.pop_tail
+		expect(list.size).to eq(2)
+	end
 
+	#it "Comprobación de una lista con 5 etiquetas diferentes" do
+	#	@@tag2 = Nutrition.new("Leche",264,3.6,2.5,4.7,4.7,3,0.13)
+	#	@@tag3 = Nutrition.new("Galletas",265,3.1,2.4,7,7,2,0.16)
+	#	@@tag4 = Nutrition.new("Loganiza_pollo",277,23,6,2,0.1,15.6,6.1)
+	#	@@tag5 = Nutrition.new("Queso",280,4.6,2.3,4,4,3,0.67)
+	#	list2 = (List.new(@@tag1))
+	#	list2.push_head(@@tag2)
+	#	list2.push_head(@@tag3)
+	#	list2.push_head(@@tag4)
+	#	list2.push_head(@@tag5)
+	#	expect(list2.to_s).to eq("")
+	#end
 end
 
 
