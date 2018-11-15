@@ -63,7 +63,7 @@ end
 RSpec.describe List do
 	
 	it "Crear una lista"  do
-		@list1 = List.new(4)
+		List.new(4)
 	end
 	
 	it "Inserta un nodo por la cabeza" do
@@ -72,6 +72,14 @@ RSpec.describe List do
 	
 	it "Inserta un nodo por la cola" do
 		List.new(5).push_tail(4)
+	end
+	
+	
+	it "Comprobación de la traza (to_s)" do
+		@@list2 = List.new(8)
+		@@list2.push_head(7)
+		@@list2.push_head(6)
+		expect(@@list2.to_s).to eq("6 7 8")	
 	end
 end
 

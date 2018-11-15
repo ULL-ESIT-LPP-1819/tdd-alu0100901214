@@ -33,6 +33,10 @@ require "tag/version"
 		node = Node.new(val, nil, nil)
 		@head, @tail = node, node
 	end
+	
+	def to_s
+		
+	end
 
 	def push_head(val)
  		node = Node.new(val, @head, nil)
