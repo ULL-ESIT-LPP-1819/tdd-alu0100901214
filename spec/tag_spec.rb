@@ -87,7 +87,7 @@ RSpec.describe List do
 	end
 	
 	it "Elimina un nodo de la lista por la cola" do
-		@@list2.push_head(7)
+		@@list2.push_tail(7)
 		@@list2.pop_tail
 		expect(@@list2.to_s).to eq("8")
 	end
