@@ -46,6 +46,10 @@ RSpec.describe Tag do
   it "Calculo de las calorias" do
 	  expect(@@tag1.cal).to eq(100.76)
   end
+
+  it "Calculo de la Ingesta de Referencia (IR)" do
+  	expect(@@tag1.kj_ir).to eq(5.065)
+  end
 end
 
 RSpec.describe List do
