@@ -38,6 +38,16 @@ RSpec.describe Tag do
   it "salt se almacena correctamente conteniendo la variable '460' (mg)" do
 	  expect(@@tag1.salt).to eq(460)
   end
+  
+  #@@list1 = List.new()
+  #@@node1 = @@list1.Node.new(nil,nil,nil)
+  @@node1 = Node.new
+  
+  it "Espero Un Struct de un nodo con los valores de 'value' 'next' y 'prev' como 'nil'" do
+	  expect(@@node1.value).to eq(nil)
+	  expect(@@node1.next).to eq(nil)
+	  expect(@@node1.prev).to eq(nil)
+  end
 
 end
 
