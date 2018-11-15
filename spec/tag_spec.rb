@@ -83,7 +83,7 @@ RSpec.describe List do
 
 	it "Elimina un nodo de la traza por la cabeza" do
 		@@list2.pop_head
-		expect(@@list2.to_s).to eq("2")
+		expect(@@list2.to_s).to eq("8")
 	end
 
 end

@@ -60,6 +60,12 @@ require "tag/version"
 		@tail.next = node
 		@tail = node
 	end
+	
+	def pop_head()
+		node = @head
+		@head = node.next
+		@head.prev = nil
+	end
 
   end
 
