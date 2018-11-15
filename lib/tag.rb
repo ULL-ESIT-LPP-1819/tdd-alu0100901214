@@ -5,7 +5,10 @@ require "tag/version"
 	  def initialize(name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt)
 		  @name_tag, @energetic_value, @q_fats, @q_fats_sat, @hc, @sugars, @protein, @salt = name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt
 	  end
-
+	  
+	  def to_s
+	  	"#{@name_tag}, valor energético #{@energetic_value}cal, grasa #{@q_fats}g, grasas saturadas #{@q_fats_sat}g, carbohidratos #{@hc}g, azúcares #{@sugars}g, proteínas #{@protein}g, sal #{@salt}g"	
+	  end
 	  def kj
 	  	(q_fats*37)+(hc*17)+(protein*17)+(salt*25)
 	  end
