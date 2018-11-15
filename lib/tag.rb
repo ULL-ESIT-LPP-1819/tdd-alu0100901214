@@ -17,6 +17,10 @@ require "tag/version"
 	  def kj_ir
 		((kj/8400)*100*100).floor / 100.0	
 	  end
+
+	  def cal_ir
+	  
+	  end
   end  
   
   Node = Struct.new(:value, :next, :prev)
