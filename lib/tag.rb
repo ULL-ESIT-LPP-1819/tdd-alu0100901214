@@ -19,7 +19,7 @@ require "tag/version"
 	  end
 
 	  def cal_ir
-	  
+ 		((cal/2000)*100*100).floor / 100.0	  
 	  end
   end  
   
