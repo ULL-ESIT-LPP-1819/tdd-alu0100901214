@@ -69,7 +69,10 @@ RSpec.describe List do
 	it "Inserta un nodo por la cabeza" do
 		List.new(4).push_head(5)
 	end
-
+	
+	it "Inserta un nodo por la cola" do
+		List.new(5).push_tail(4)
+	end
 end
 
 
