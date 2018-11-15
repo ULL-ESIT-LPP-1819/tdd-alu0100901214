@@ -10,8 +10,9 @@ require "tag/version"
 	  	(q_fats*37)+(hc*17)+(protein*17)+(salt*25)
 	  end
 	  
-	  
-	  
+	  def cal
+		
+	  end
   end  
   
   Node = Struct.new(:value, :next, :prev)

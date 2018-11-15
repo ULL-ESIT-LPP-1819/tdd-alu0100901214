@@ -42,7 +42,10 @@ RSpec.describe Tag do
   it "Calculo de los kilojulios" do
 	  expect(@@tag1.kj).to eq(425.5)
   end
-
+  
+  it "Calculo de las calorias" do
+	  expect(@@tag1.cal).to eq(100.76)
+  end
 end
 
 RSpec.describe List do
