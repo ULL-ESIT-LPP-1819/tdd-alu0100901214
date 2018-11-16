@@ -99,13 +99,13 @@ RSpec.describe List do
 	end
 	
 	it "Compruebo de que la variable size funcione" do
-		list = (List.new(2))
-		list.push_tail(3)
-		expect(list.size).to eq(2)
-		list.push_tail(4)
-		expect(list.size).to eq(3)
-		list.pop_tail
-		expect(list.size).to eq(2)
+		@@list = (List.new(2))
+		@@list.push_tail(3)
+		expect(@@list.size).to eq(2)
+		@@list.push_tail(4)
+		expect(@@list.size).to eq(3)
+		@@list.pop_tail
+		expect(@@list.size).to eq(2)
 	end
 
 	#it "Comprobación de una lista con 5 etiquetas diferentes" do

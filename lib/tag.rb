@@ -28,22 +28,23 @@ require "tag/version"
 
   class List
 	Node = Struct.new(:value, :next, :prev)
-  	attr_accessor :head, :tail
+  	attr_accessor :head, :tail, :size
 	def initialize(val)
 		node = Node.new(val, nil, nil)
-		@head, @tail = node, node
+		@head, @tail, @size = node, node, 1
 	end
 	
 	def to_s
 		node = @head
-                check = false
+                size_aux = 0
 		string = ""
-		while(check==false) do
+		while(size_aux < @size) do
 			string = string + "#{node.value} "
-			if(node!=tail)
+			if(size_aux < @size)
 				node=@head.next
-			elsif(node==tail)
-				check=true
+				size_aux = size_aux + 1
+			else
+				#size_aux = size_aux + 1
 			end
 		end
 		string[0,string.size-1]
@@ -52,25 +53,33 @@ require "tag/version"
 	def push_head(val)
  		node = Node.new(val, @head, nil)
                 @head.prev = node
-                @head = node		
+                @head = node
+		@size = @size + 1		
 	end
 	
 	def push_tail(val)
 		node = Node.new(val, nil, @tail)
 		@tail.next = node
 		@tail = node
+		@size = @size + 1
 	end
 	
 	def pop_head()
-		node = @head
-		@head = node.next
-		@head.prev = nil
+		if(@size > 0) 
+			node = @head
+			@head = node.next
+			@head.prev = nil
+			@size = @size - 1
+		end
 	end
 	
 	def pop_tail()
-		node = @tail
-		@tail = node.prev
-		@tail.next = nil
+		if(@size > 0) 
+			node = @tail
+			@tail = node.prev
+			@tail.next = nil
+			@size = @size - 1
+		end
 	end
   end
 
