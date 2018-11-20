@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "tag"
+require "tag/tag"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
