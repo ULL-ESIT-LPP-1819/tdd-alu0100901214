@@ -63,51 +63,51 @@ end
 RSpec.describe List do
 	
 	it "Crear una lista"  do
-		List.new(4)
+		List.new
 	end
 	
 	it "Inserta un nodo por la cabeza" do
-		List.new(4).push_head(5)
+		List.new.push_head(5)
 	end
 	
 	it "Inserta un nodo por la cola" do
-		List.new(5).push_tail(4)
+		List.new.push_tail(4)
 	end
 	
 	
 	it "Comprobación de la traza (to_s)" do
-		@@list2 = List.new(8)
+		@@list2 = List.new
 		@@list2.push_head(7)
 		@@list2.push_head(6)
-		expect(@@list2.to_s).to eq("6 7 8")	
-		@@list2.pop_head
+		expect(@@list2.to_s).to eq("6 7")	
 	end
 
 	it "Elimina un nodo de la lista por la cabeza" do
 		@@list2.pop_head
-		expect(@@list2.to_s).to eq("8")
+		expect(@@list2.to_s).to eq("7")
 	end
 	
 	it "Elimina un nodo de la lista por la cola" do
-		@@list2.push_tail(7)
+		@@list2.push_head(8)
 		@@list2.pop_tail
 		expect(@@list2.to_s).to eq("8")
 	end
 	
 	# Comprobación directa sin usar la metodología TDD
 	it "Comprobación de que se pueden almacenar etiquetas" do
-		list = (List.new(@@tag1))
+		list = (List.new)
+		list.push_head(@@tag1)
 		expect(list.head.value.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
 	end
 	
 	it "Compruebo de que la variable size funcione" do
-		@@list = (List.new(2))
+		@@list = (List.new)
 		@@list.push_tail(3)
-		expect(@@list.size).to eq(2)
+		expect(@@list.size).to eq(1)
 		@@list.push_tail(4)
-		expect(@@list.size).to eq(3)
-		@@list.pop_tail
 		expect(@@list.size).to eq(2)
+		@@list.pop_tail
+		expect(@@list.size).to eq(1)
 	end
 
 

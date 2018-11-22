@@ -30,9 +30,8 @@ require "tag/version"
   class List
 	Node = Struct.new(:value, :next, :prev)
   	attr_accessor :head, :tail, :size
-	def initialize(val)
-		node = Node.new(val, nil, nil)
-		@head, @tail, @size = node, node, 1
+	def initialize
+		@head, @tail, @size = nil, nil, 0
 	end
 	
 	def to_s
@@ -50,21 +49,39 @@ require "tag/version"
 	end
 
 	def push_head(val)
- 		node = Node.new(val, @head, nil)
-                @head.prev = node
-                @head = node
-		@size = @size + 1		
+		puts val
+		if(@size == 0)
+			puts "size == 0"
+			node = Node.new(val,nil,nil)
+			@head = node
+			@tail = node
+		elsif
+			puts "size != 0 #{size}"
+ 			node = Node.new(val, @head, nil)
+                	@head.prev = node
+                	@head = node
+			@size = @size + 1
+		end		
 	end
 	
 	def push_tail(val)
-		node = Node.new(val, nil, @tail)
-		@tail.next = node
-		@tail = node
-		@size = @size + 1
+		if(@size == 0)
+			puts "size == 0"
+			node = Node.new(val,nil,nil)
+			@head = node
+			@tail = node
+		elsif
+			puts "size != 0 #{size}"
+			node = Node.new(val, nil, @tail)
+			@tail.next = node
+			@tail = node
+			@size = @size + 1
+		end
 	end
 	
 	def pop_head()
 		if(@size > 0) 
+			puts "size > 0 #{size}"
 			node = @head
 			@head = node.next
 			@head.prev = nil
@@ -74,6 +91,7 @@ require "tag/version"
 	
 	def pop_tail()
 		if(@size > 0) 
+			puts "size > 0 #{size}"
 			node = @tail
 			@tail = node.prev
 			@tail.next = nil
