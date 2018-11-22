@@ -161,3 +161,7 @@ require "tag/version"
 		end
 		
 	end
+	
+	class Person < Antrop
+		
+	end

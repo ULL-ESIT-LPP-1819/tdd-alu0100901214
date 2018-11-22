@@ -150,5 +150,9 @@ RSpec.describe Antrop do
 		antrop5 = Antrop.new(66,1.74,20,0,89.8,102.1)
 		expect(antrop5.classify_rcc).to eq("Alto")
 	end
+	
+	it "Crea un objeto Persona" do
+		expect((Person.new).class).to eq(Person)
+	end
 end
 
