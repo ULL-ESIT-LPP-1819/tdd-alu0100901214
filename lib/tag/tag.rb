@@ -111,6 +111,6 @@ require "tag/version"
         end
 		
 		def imc
-			
+			@peso/(@talla*@talla).round(1)
 		end
 	end
