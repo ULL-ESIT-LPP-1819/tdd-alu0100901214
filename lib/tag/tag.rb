@@ -163,7 +163,5 @@ require "tag/version"
 	end
 	
 	class Person < Antrop
-		def initialize(peso = 0.0, talla = 0.0, edad = 0.0, sexo = -1, circ_cint = 0.0, circ_cad = 0.0)
-			super
-		end
+		
 	end
