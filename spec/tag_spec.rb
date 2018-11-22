@@ -128,12 +128,12 @@ RSpec.describe Antrop do
 	
 	it "Prueba de que se calcula el imc correctamente" do
 		antrop1 = Antrop.new(66,1.74,20,0,89.8,102.1)
-		expect(antrop.imc).to eq(22.0)
+		expect(antrop1.imc).to eq(21.8)
 	end
 	
 	it "Prueba de que se calcula el porcentaje en grasa correctamente" do
 		antrop2 = Antrop.new(66,1.74,20,0,89.8,102.1)
-		expect(antrop2.p_grasa).to eq(25.6)
+		expect(antrop2.p_grasa).to eq(25.4)
 	end
 end
 

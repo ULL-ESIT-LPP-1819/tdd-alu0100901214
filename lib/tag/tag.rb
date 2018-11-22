@@ -111,10 +111,10 @@ require "tag/version"
         end
 		
 		def imc
-			@peso/(@talla*@talla).round(1)
+			(@peso/(@talla*@talla)).round(1)
 		end
 		
 		def p_grasa
-			
+			(1.2*imc+0.23*@edad-10.8*@sexo-5.4).round(1)
 		end
 	end
