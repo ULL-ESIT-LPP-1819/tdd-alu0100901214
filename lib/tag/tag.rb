@@ -121,4 +121,8 @@ require "tag/version"
 		def rcc
 			(@circ_cint/@circ_cad).round(1)
 		end
+		
+		def classify_imc
+				
+		end
 	end

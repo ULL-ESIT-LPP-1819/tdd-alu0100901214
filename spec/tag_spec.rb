@@ -140,5 +140,10 @@ RSpec.describe Antrop do
 		antrop3 = Antrop.new(66,1.74,20,0,89.8,102.1)
 		expect(antrop3.rcc).to eq(0.9)
 	end
+	
+	it "Clasificación del imc" do
+		antrop4 = Antrop.new(66,1.74,20,0,89.8,102.1)
+		expect(antrop4.classify_imc).to eq("Sobrepeso - Sobrepeso")
+	end
 end
 
