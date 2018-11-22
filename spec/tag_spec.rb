@@ -138,7 +138,7 @@ RSpec.describe Antrop do
 	
 	it "Prueba de que se calcula el rcc" do
 		antrop3 = Antrop.new(66,1.74,20,0,89.8,102.1)
-		expect(antrop3.rcc).to eq(0.88)
+		expect(antrop3.rcc).to eq(0.9)
 	end
 end
 

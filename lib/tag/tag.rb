@@ -119,6 +119,6 @@ require "tag/version"
 		end
 		
 		def rcc
-			
+			(@circ_cint/@circ_cad).round(1)
 		end
 	end
