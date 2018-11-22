@@ -168,5 +168,11 @@ RSpec.describe Antrop do
 	it "Comprobación de la jerarquía de clases" do
 		expect(Person.ancestors).to eq([Person, Antrop, Object, Kernel, BasicObject])
 	end
+	
+	it "Comprobación del tipo de objeto" do
+		 expect((@person2).is_a?(Antrop)).to eq(true)
+     expect((@person2).is_a?(Person)).to eq(true)
+	end
+	
 end
 
