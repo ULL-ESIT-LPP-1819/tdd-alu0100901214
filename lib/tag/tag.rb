@@ -167,4 +167,8 @@ require "tag/version"
 			super(peso, talla, edad, sexo, circ_cint, circ_cad)
 			@nombre, @apellido1, @apellido2 = nombre, apellido1, apellido2
 		end
+		
+		def tratamiento
+			
+		end
 	end
