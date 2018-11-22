@@ -123,7 +123,6 @@ require "tag/version"
 		end
 		
 		def classify_imc
-			puts imc
 				if(imc < 18.5)
 					"Bajo peso - Delgado"
 				elsif((imc >= 18.5)&&(imc <= 24.9))
@@ -140,7 +139,25 @@ require "tag/version"
 		end
 		
 		def classify_rcc
-			
+			if(@sexo == 0)
+				if((rcc >= 0.72)&&(rcc <= 0.77))
+					"Bajo"
+				elsif((rcc >= 0.78)&&(rcc <= 0.82))
+					"Moderado"
+				elsif(rcc >= 0.82)
+					"Alto"
+				end
+			elsif(@sexo == 1)
+				if((rcc >= 0.83)&&(rcc <= 0.88))
+					"Bajo"
+				elsif((rcc >= 0.88)&&(rcc <= 0.95))
+					"Moderado"
+				elsif((rcc >= 0.95)&&(rcc <= 1.01))
+					"Alto"
+				elsif(rcc >= 0.82)
+					"Muy alto"
+				end
+			end
 		end
 		
 	end
