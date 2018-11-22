@@ -175,4 +175,8 @@ require "tag/version"
 				true
 			end
 		end
+		
+		def tratamiento_obesidad
+			
+		end
 	end

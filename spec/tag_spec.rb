@@ -152,12 +152,17 @@ RSpec.describe Antrop do
 	end
 	
 	it "Crea un objeto Persona" do
-		expect((Person.new(66,1.74,20,0,89.8,102.1,"Pedro","Rodriguez","García")).class).to eq(Person)
+		expect((Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")).class).to eq(Person)
 	end
 	
-	it "Comprobación de si la Persona esta es paciente de la consulta" do 
-		person1 = Person.new(66,1.74,20,0,89.8,102.1,"Pedro","Rodriguez","García")
+	it "Comprobación de si la Persona es paciente de la consulta" do 
+		person1 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
 		expect(person1.es_paciente).to eq(true)
+	end
+	
+	it "Comprobación de si la Persona esta en tratamiento para la obesidad" do
+		person1 = Person.new(120,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		expect(person1.tratamiento_obesidad).to eq(true)
 	end
 end
 
