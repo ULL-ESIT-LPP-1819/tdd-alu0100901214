@@ -177,6 +177,14 @@ require "tag/version"
 		end
 		
 		def tratamiento_obesidad
-			
+			if(es_paciente)
+				if((classify_imc == "Obesidad grado 1 - Obesidad")||(classify_imc == "Obesidad grado 2 - Obesidad")||(classify_imc == "Obesidad grado 3 - Obesidad"))
+					true
+				else
+					false
+				end
+			elsif
+				false
+			end
 		end
 	end
