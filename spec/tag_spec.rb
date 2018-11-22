@@ -169,10 +169,40 @@ RSpec.describe Antrop do
 		expect(Person.ancestors).to eq([Person, Antrop, Object, Kernel, BasicObject])
 	end
 	
-	it "Comprobación del tipo de objeto" do
-		 expect((@person2).is_a?(Antrop)).to eq(true)
-     expect((@person2).is_a?(Person)).to eq(true)
+	#it "Comprobación del tipo de objeto" do
+	#	 expect((@person2).is_a?(Antrop)).to eq(true)
+  #   expect((@person2).is_a?(Person)).to eq(true)
+	#end
+	
+	lista_personas = List.new
+	lista_personas.push_head(Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García"))
+	lista_personas.push_head(Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García"))
+	lista_personas.push_head(Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García"))
+	lista_personas.push_head(Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García"))
+	lista_personas.push_head(Person.new(90,1.85,28,0,89.8,93.2,"Laura","Rodriguez","García"))
+	
+	it "Comprobamos el imc de María" do
+		expect(lista_personas.head.value.classify_imc).to eq("Sobrepeso - Sobrepeso")
+		lista_personas.pop_head
 	end
 	
+	it "Comprobamos el imc de Pedro" do
+		expect(lista_personas.head.value.classify_imc).to eq("Obesidad grado 3 - Obesidad")
+		lista_personas.pop_head
+	end
+	
+	it "Comprobamos el imc de Luis" do
+		expect(lista_personas.head.value.classify_imc).to eq("Obesidad grado 2 - Obesidad")
+		lista_personas.pop_head
+	end
+	
+	it "Comprobamos el imc de Marta" do
+		expect(lista_personas.head.value.classify_imc).to eq("Adecuado - Aceptable")
+		lista_personas.pop_head
+	end
+	
+	it "Comprobamos el imc de Laura" do
+		expect(lista_personas.head.value.classify_imc).to eq("Sobrepeso - Sobrepeso")
+	end
 end
 
