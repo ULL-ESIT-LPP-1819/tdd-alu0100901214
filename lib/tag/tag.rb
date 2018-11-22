@@ -113,4 +113,8 @@ require "tag/version"
 		def imc
 			@peso/(@talla*@talla).round(1)
 		end
+		
+		def p_grasa
+			
+		end
 	end
