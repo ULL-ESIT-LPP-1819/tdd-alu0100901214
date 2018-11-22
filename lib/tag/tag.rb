@@ -117,4 +117,8 @@ require "tag/version"
 		def p_grasa
 			(1.2*imc+0.23*@edad-10.8*@sexo-5.4).round(1)
 		end
+		
+		def rcc
+			
+		end
 	end
