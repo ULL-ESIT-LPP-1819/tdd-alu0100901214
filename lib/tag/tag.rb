@@ -106,5 +106,8 @@ require "tag/version"
 
 	class Antrop
 		
+		def initialize (peso, talla, edad, sexo, circ_cint, circ_cad)
+        	@peso, @talla, @edad, @sexo, @circ_cint, @circ_cad = peso, talla, edad, sexo, circ_cint, circ_cad
+        end
 		
 	end
