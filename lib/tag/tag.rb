@@ -36,52 +36,55 @@ require "tag/version"
 	
 	def to_s
 		node = @head
-                size_aux = 0
+        size_aux = 0
 		string = ""
 		while(size_aux < @size) do
-			string = string + "#{node.value} "
 			if(size_aux < @size)
+				string = string + "#{node.value} "
 				node=node.next
 				size_aux = size_aux + 1
 			end
 		end
 		string[0,string.size-1]
 	end
-
+	
+	def is_empty
+		if(@size != 0)
+			return false
+		end
+		true
+	end
+	
 	def push_head(val)
-		puts val
 		if(@size == 0)
-			puts "size == 0"
 			node = Node.new(val,nil,nil)
 			@head = node
 			@tail = node
-		elsif
-			puts "size != 0 #{size}"
+		end
+		if(@size != 0)
  			node = Node.new(val, @head, nil)
-                	@head.prev = node
-                	@head = node
-			@size = @size + 1
-		end		
+            @head.prev = node
+            @head = node
+		end	
+		@size = @size + 1
 	end
 	
 	def push_tail(val)
 		if(@size == 0)
-			puts "size == 0"
 			node = Node.new(val,nil,nil)
 			@head = node
 			@tail = node
-		elsif
-			puts "size != 0 #{size}"
+		end
+		if(@size != 0)
 			node = Node.new(val, nil, @tail)
 			@tail.next = node
 			@tail = node
-			@size = @size + 1
 		end
+		@size = @size + 1
 	end
 	
 	def pop_head()
 		if(@size > 0) 
-			puts "size > 0 #{size}"
 			node = @head
 			@head = node.next
 			@head.prev = nil
@@ -91,7 +94,6 @@ require "tag/version"
 	
 	def pop_tail()
 		if(@size > 0) 
-			puts "size > 0 #{size}"
 			node = @tail
 			@tail = node.prev
 			@tail.next = nil

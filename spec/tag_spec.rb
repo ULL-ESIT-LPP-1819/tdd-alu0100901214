@@ -62,6 +62,13 @@ end
 
 RSpec.describe List do
 	
+	it "Comprobar que la lista este vacía" do
+		lista = List.new
+		expect(lista.is_empty).to eq(true)
+		lista.push_head(2)
+		expect(lista.is_empty).to eq(false)
+	end
+	
 	it "Crear una lista"  do
 		List.new
 	end
