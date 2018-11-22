@@ -145,5 +145,10 @@ RSpec.describe Antrop do
 		antrop4 = Antrop.new(66,1.74,20,0,89.8,102.1)
 		expect(antrop4.classify_imc).to eq("Adecuado - Aceptable")
 	end
+	
+	it "Clasificación del rcc" do
+		antrop5 = Antrop.new(66,1.74,20,0,89.8,102.1)
+		expect(antrop5.classify_rcc).to eq("Alto")
+	end
 end
 

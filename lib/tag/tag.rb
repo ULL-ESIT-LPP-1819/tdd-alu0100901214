@@ -139,4 +139,8 @@ require "tag/version"
 				end
 		end
 		
+		def classify_rcc
+			
+		end
+		
 	end
