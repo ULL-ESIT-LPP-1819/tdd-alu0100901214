@@ -125,5 +125,10 @@ RSpec.describe Antrop do
 	it "Crear un objeto de Antropometría" do
 		expect((Antrop.new(66,1.74,20,0,89.8,102.1)).class).to eq(Antrop)
 	end
+	
+	it "Prueba de que se calcula el imc correctamente" do
+		antrop = Antrop.new(66,1.74,20,0,89.8,102.1)
+		expect(antrop.imc).to eq(18.96)
+	end
 end
 

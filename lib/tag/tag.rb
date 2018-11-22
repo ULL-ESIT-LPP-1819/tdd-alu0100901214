@@ -105,9 +105,12 @@ require "tag/version"
 
 
 	class Antrop
-		
+		attr_accessor :peso, :talla, :edad, :sexo, :circ_cint, :circ_cad
 		def initialize (peso, talla, edad, sexo, circ_cint, circ_cad)
         	@peso, @talla, @edad, @sexo, @circ_cint, @circ_cad = peso, talla, edad, sexo, circ_cint, circ_cad
         end
 		
+		def imc
+			
+		end
 	end
