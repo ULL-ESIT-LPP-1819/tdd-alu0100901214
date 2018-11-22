@@ -161,8 +161,12 @@ RSpec.describe Antrop do
 	end
 	
 	it "Comprobación de si la Persona esta en tratamiento para la obesidad" do
-		person1 = Person.new(120,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
-		expect(person1.tratamiento_obesidad).to eq(true)
+		@person2 = Person.new(120,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		expect(@person2.tratamiento_obesidad).to eq(true)
+	end
+	
+	it "Comprobación de la jerarquía de clases" do
+		expect(Person.ancestors).to eq([Person, Antrop, Object, Kernel, BasicObject])
 	end
 end
 
