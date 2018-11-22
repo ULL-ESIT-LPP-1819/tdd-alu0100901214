@@ -1,4 +1,5 @@
 require './lib/tag'
+
 RSpec.describe Tag do
   it "has a version number" do
   	expect(Tag::VERSION).not_to be nil
@@ -117,20 +118,12 @@ RSpec.describe List do
 		expect(@@list.size).to eq(1)
 	end
 
-
-	#it "Comprobación de una lista con 5 etiquetas diferentes" do
-	#	@@tag2 = Nutrition.new("Leche",264,3.6,2.5,4.7,4.7,3,0.13)
-	#	@@tag3 = Nutrition.new("Galletas",265,3.1,2.4,7,7,2,0.16)
-	#	@@tag4 = Nutrition.new("Loganiza_pollo",277,23,6,2,0.1,15.6,6.1)
-	#	@@tag5 = Nutrition.new("Queso",280,4.6,2.3,4,4,3,0.67)
-	#	list2 = (List.new(@@tag1))
-	#	list2.push_head(@@tag2)
-	#	list2.push_head(@@tag3)
-	#	list2.push_head(@@tag4)
-	#	list2.push_head(@@tag5)
-	#	expect(list2.to_s).to eq("")
-	#end
 end
 
-
+RSpec.describe Antrop do
+	
+	it "Crear un objeto de Antropometría" do
+		expect((Antrop.new(66,1.74,20,0,89.8,102.1)).class).to eq(Antrop)
+	end
+end
 
