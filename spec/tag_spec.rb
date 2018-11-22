@@ -155,9 +155,9 @@ RSpec.describe Antrop do
 		expect((Person.new(66,1.74,20,0,89.8,102.1,"Pedro","Rodriguez","García")).class).to eq(Person)
 	end
 	
-	it "Comprobación de si la Persona esta en tratamiento" do 
+	it "Comprobación de si la Persona esta es paciente de la consulta" do 
 		person1 = Person.new(66,1.74,20,0,89.8,102.1,"Pedro","Rodriguez","García")
-		expect(person1.tratamiento).to eq(true)
+		expect(person1.es_paciente).to eq(true)
 	end
 end
 

@@ -168,7 +168,11 @@ require "tag/version"
 			@nombre, @apellido1, @apellido2 = nombre, apellido1, apellido2
 		end
 		
-		def tratamiento
-			
+		def es_paciente
+			if((peso == 0.0)&&(talla == 0.0)&&(edad==0.0)&&((sexo!=0)||(sexo!=1))&&(circ_cint==0.0)&&(circ_cad==0.0))
+				false
+			else
+				true
+			end
 		end
 	end
