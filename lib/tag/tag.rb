@@ -163,5 +163,8 @@ require "tag/version"
 	end
 	
 	class Person < Antrop
-		
+		def initialize(peso, talla, edad, sexo, circ_cint, circ_cad, nombre, apellido1, apellido2)
+			super(peso, talla, edad, sexo, circ_cint, circ_cad)
+			@nombre, @apellido1, @apellido2 = nombre, apellido1, apellido2
+		end
 	end
