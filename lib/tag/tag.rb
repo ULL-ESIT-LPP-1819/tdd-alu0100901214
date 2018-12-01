@@ -30,7 +30,7 @@ require "tag/version"
 	  end
 	  
 	  def <=>(other)
-	  	
+	  	cal <=> other.cal
 	  end
 	  
   end  
