@@ -1,6 +1,7 @@
 require './lib/tag'
 
 RSpec.describe Tag do
+
   it "has a version number" do
   	expect(Tag::VERSION).not_to be nil
   end
@@ -59,6 +60,13 @@ RSpec.describe Tag do
   it "Comprobación del método to_s" do
 	  expect(@@tag1.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
   end
+  
+  it "Comprobación de que 2 etiquetas son comparables" do
+  	@tagA = Nutrition.new("Taza",98,2,1.5,4,4,16,0.46)
+  	@tagB = Nutrition.new("Taza",98,2,1.5,4,4,16,0.46)
+  	expect(@tagA==@tagB).to eq(true)
+  end
+  
 end
 
 RSpec.describe List do
@@ -169,10 +177,11 @@ RSpec.describe Antrop do
 		expect(Person.ancestors).to eq([Person, Antrop, Object, Kernel, BasicObject])
 	end
 	
-	#it "Comprobación del tipo de objeto" do
-	#	 expect((@person2).is_a?(Antrop)).to eq(true)
-  #   expect((@person2).is_a?(Person)).to eq(true)
-	#end
+	it "Comprobación del tipo de objeto" do
+		 @persona3 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		 expect((@persona3).is_a?(Antrop)).to eq(true)
+     expect((@persona3).is_a?(Person)).to eq(true)
+	end
 	
 	lista_personas = List.new
 	lista_personas.push_head(Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García"))
@@ -180,6 +189,7 @@ RSpec.describe Antrop do
 	lista_personas.push_head(Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García"))
 	lista_personas.push_head(Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García"))
 	lista_personas.push_head(Person.new(90,1.85,28,0,89.8,93.2,"Laura","Rodriguez","García"))
+	
 	
 	it "Comprobamos el imc de María" do
 		expect(lista_personas.head.value.classify_imc).to eq("Sobrepeso - Sobrepeso")
@@ -204,5 +214,6 @@ RSpec.describe Antrop do
 	it "Comprobamos el imc de Laura" do
 		expect(lista_personas.head.value.classify_imc).to eq("Sobrepeso - Sobrepeso")
 	end
+	
 end
 

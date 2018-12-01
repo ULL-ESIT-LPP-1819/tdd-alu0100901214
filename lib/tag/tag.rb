@@ -1,7 +1,11 @@
 require "tag/version"
 
   class Nutrition
+  	
+  	  include Comparable
+  	
 	  attr_accessor :name_tag, :energetic_value, :q_fats, :q_fats_sat, :hc, :sugars, :protein, :salt
+	  
 	  def initialize(name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt)
 		  @name_tag, @energetic_value, @q_fats, @q_fats_sat, @hc, @sugars, @protein, @salt = name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt
 	  end
@@ -24,7 +28,11 @@ require "tag/version"
 	  def cal_ir
  		((cal/2000)*100*100).floor / 100.0	  
 	  end
-
+	  
+	  def <=>(other)
+	  	
+	  end
+	  
   end  
 
   class List
