@@ -30,6 +30,8 @@ require "tag/version"
 	  end
 	  
 	  def <=>(other)
+	  	puts cal
+	  	puts other.cal
 	  	cal <=> other.cal
 	  end
 	  

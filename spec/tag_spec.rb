@@ -62,9 +62,19 @@ RSpec.describe Tag do
   end
   
   it "Comprobación de que 2 etiquetas son comparables" do
-  	@tagA = Nutrition.new("Taza",98,2,1.5,4,4,16,0.46)
-  	@tagB = Nutrition.new("Taza",98,2,1.5,4,4,16,0.46)
-  	expect(@tagA==@tagB).to eq(true)
+  	tagA = Nutrition.new("Taza_A",98,2,1.5,4,4,16,0.46)
+  	tagB = Nutrition.new("Taza_B",98,2,1.5,4,4,16,0.46)
+  	expect(tagA==tagB).to eq(true)
+  end
+  
+  it "Comparación de 2 etiquetas con todos los operadores" do
+  	tagC = Nutrition.new("Taza_C",98,2,1.5,4,4,16,0.46)
+  	tagD = Nutrition.new("Taza_D",88,2,1.1,3,3,14,0.46)
+  	expect(tagC==tagD).to eq(false)
+  	expect(tagC<tagD).to eq(false)
+  	expect(tagC>tagD).to eq(true)
+  	expect(tagC<=tagD).to eq(false)
+  	expect(tagC>=tagD).to eq(true)
   end
   
 end
