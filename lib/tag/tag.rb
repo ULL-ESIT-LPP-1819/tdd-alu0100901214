@@ -30,8 +30,7 @@ require "tag/version"
 	  end
 	  
 	  def <=>(other)
-	  	puts cal
-	  	puts other.cal
+	  	return nil unless other.instance_of? Nutrition
 	  	cal <=> other.cal
 	  end
 	  
@@ -173,7 +172,8 @@ require "tag/version"
 		end
 		
 		def <=>(other)
-			
+			return nil unless other.instance_of? Antrop
+			self.imc <=> other.imc
 		end
 		
 	end
@@ -205,6 +205,7 @@ require "tag/version"
 		end
 		
 		def <=>(other)
-			
+			return nil unless other.instance_of? Person
+			self.imc <=> other.imc
 		end
 	end
