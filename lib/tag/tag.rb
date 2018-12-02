@@ -115,6 +115,8 @@ require "tag/version"
 
 
 	class Antrop
+		
+		include Comparable
 		attr_accessor :peso, :talla, :edad, :sexo, :circ_cint, :circ_cad
 		def initialize (peso, talla, edad, sexo, circ_cint, circ_cad)
         	@peso, @talla, @edad, @sexo, @circ_cint, @circ_cad = peso, talla, edad, sexo, circ_cint, circ_cad
@@ -170,6 +172,10 @@ require "tag/version"
 			end
 		end
 		
+		def <=>(other)
+			
+		end
+		
 	end
 	
 	class Person < Antrop
@@ -196,5 +202,9 @@ require "tag/version"
 			elsif
 				false
 			end
+		end
+		
+		def <=>(other)
+			
 		end
 	end

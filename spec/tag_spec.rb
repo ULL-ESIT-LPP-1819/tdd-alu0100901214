@@ -184,7 +184,7 @@ RSpec.describe Antrop do
 	end
 	
 	it "Comprobación de la jerarquía de clases" do
-		expect(Person.ancestors).to eq([Person, Antrop, Object, Kernel, BasicObject])
+		expect(Person.ancestors).to eq([Person, Antrop, Comparable, Object, Kernel, BasicObject])
 	end
 	
 	it "Comprobación del tipo de objeto" do
@@ -223,6 +223,16 @@ RSpec.describe Antrop do
 	
 	it "Comprobamos el imc de Laura" do
 		expect(lista_personas.head.value.classify_imc).to eq("Sobrepeso - Sobrepeso")
+	end
+	
+	it "Comprobación de que 2 Personas son comparables (usando todos los operadores)" do
+		persona_A = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García") # 26'87 A
+		persona_B = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García") # 21'97 B
+		expect(persona_A==persona_B).to eq(false)
+		expect(persona_A<persona_B).to eq(false)
+		expect(persona_A<=persona_B).to eq(false)
+		expect(persona_A>persona_B).to eq(true)
+		expect(persona_A>=persona_B).to eq(true)
 	end
 	
 end
