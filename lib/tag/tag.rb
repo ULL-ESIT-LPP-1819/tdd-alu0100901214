@@ -223,8 +223,12 @@ require "tag/version"
 			end
 		end
 		
+		def to_s
+			"#{imc}"
+		end
+		
 		def <=>(other)
 			return nil unless other.instance_of? Person
-			self.imc <=> other.imc
+			imc <=> other.imc
 		end
 	end

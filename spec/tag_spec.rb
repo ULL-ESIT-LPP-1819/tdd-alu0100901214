@@ -164,6 +164,37 @@ RSpec.describe List do
     expect(list.sort).to eq([tagD, tagC, tagB, tagA])
   	
 	end
+	
+	it "Comprobación de que las instancias sean enumerables con listas de Personas" do
+		list_p = List.new
+		personA = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García")
+		personB = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García")
+		personC = Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García")
+		personD = Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García")
+		list_p.push_head(personA)
+		list_p.push_head(personB)
+		list_p.push_head(personC)
+		list_p.push_head(personD)
+		puts personA.imc #26.0
+		puts personB.imc #22.0
+		puts personC.imc #39.6
+		puts personD.imc #40.4
+		vec_aux_2 = []
+		list_p.each { |item| vec_aux_2.push(item.to_s)}
+		expect("#{vec_aux_2.to_s}").to eq("[\"40.4\", \"39.6\", \"22.0\", \"26.9\"]")
+		
+		expect(list_p.max).to eq(personD)
+  	expect(list_p.min).to eq(personB)
+  	
+  	expect(list_p.collect { |item| item }).to eq([personD, personC, personB, personA])
+    
+    expect(list_p.select{|item| "22.0" == item.to_s}).to eq([personB])
+    
+    expect(list_p.sort).to eq([personB, personA, personC, personD])
+    
+	end
+	
+	
 end
 
 RSpec.describe Antrop do
