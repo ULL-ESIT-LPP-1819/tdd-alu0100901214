@@ -3,7 +3,8 @@ require "tag/version"
   class Nutrition
   	
   	  include Comparable
-  	
+  	  include Enumerable
+  	  
 	  attr_accessor :name_tag, :energetic_value, :q_fats, :q_fats_sat, :hc, :sugars, :protein, :salt
 	  
 	  def initialize(name_tag, energetic_value, q_fats, q_fats_sat, hc, sugars, protein, salt)
@@ -13,6 +14,11 @@ require "tag/version"
 	  def to_s
 	  	"#{@name_tag}, valor energético #{@energetic_value}cal, grasa #{@q_fats}g, grasas saturadas #{@q_fats_sat}g, carbohidratos #{@hc}g, azúcares #{@sugars}g, proteínas #{@protein}g, sal #{@salt}g"	
 	  end
+	  
+	  def to_s
+	  	"#{cal}"
+	  end
+	  
 	  def kj
 	  	(q_fats*37)+(hc*17)+(protein*17)+(salt*25)
 	  end
@@ -37,6 +43,9 @@ require "tag/version"
   end  
 
   class List
+  	
+  	include Enumerable
+  	
 	Node = Struct.new(:value, :next, :prev)
   	attr_accessor :head, :tail, :size
 	def initialize
@@ -109,6 +118,10 @@ require "tag/version"
 			@size = @size - 1
 		end
 	end
+	
+	def each
+		
+	end
   end
 
 
@@ -116,6 +129,8 @@ require "tag/version"
 	class Antrop
 		
 		include Comparable
+		include Enumerable
+		
 		attr_accessor :peso, :talla, :edad, :sexo, :circ_cint, :circ_cad
 		def initialize (peso, talla, edad, sexo, circ_cint, circ_cad)
         	@peso, @talla, @edad, @sexo, @circ_cint, @circ_cad = peso, talla, edad, sexo, circ_cint, circ_cad
