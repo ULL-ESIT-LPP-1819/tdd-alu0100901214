@@ -120,7 +120,11 @@ require "tag/version"
 	end
 	
 	def each
-		
+		node = @head
+		while node != nil
+			yield node.value
+			node = node.next
+		end
 	end
   end
 
