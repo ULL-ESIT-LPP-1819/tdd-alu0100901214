@@ -58,7 +58,7 @@ RSpec.describe Tag do
   end
 
   it "Comprobación del método to_s" do
-	  #expect(@@tag1.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
+	  expect(@@tag1.to_s).to eq("100.76")
   end
   
   it "Comprobación de que 2 etiquetas son comparables" do
@@ -123,7 +123,7 @@ RSpec.describe List do
 	it "Comprobación de que se pueden almacenar etiquetas" do
 		list = (List.new)
 		list.push_head(@@tag1)
-		#expect(list.head.value.to_s).to eq("Taza, valor energético 98cal, grasa 2g, grasas saturadas 1.5g, carbohidratos 4g, azúcares 4g, proteínas 16g, sal 0.46g")
+		expect(list.head.value.to_s).to eq("100.76")
 	end
 	
 	it "Compruebo de que la variable size funcione" do
