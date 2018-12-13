@@ -327,6 +327,7 @@ require "tag/version"
 		end
 		
 		def gasto_energetico_total
+			gasto_energetico_basal+gasto_actividad_fisica+efecto_termogeneo
 		end
 		
 		# Método to_s de la Persona
