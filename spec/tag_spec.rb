@@ -321,7 +321,10 @@ RSpec.describe Person do
 		it "Comprobacion del factor de actividad fisica" do
 			expect(@persona_A.factor_de_actividad_fisica).to eq(0.0)
 		end
-	
+		
+		it "Comprobacion del gasto actividad fisica" do
+			expect(@persona_A.gasto_actividad_fisica).to eq(0.0)
+		end
 end
 	
 
