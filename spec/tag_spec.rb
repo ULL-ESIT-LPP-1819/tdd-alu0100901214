@@ -375,7 +375,6 @@ RSpec.describe Person do
 			cal_total = cal_aux.reduce(:+).round(1)
 			expect(cal_total >= gasto_con_margen_error).to eq(true)
 		end
-		
 		#puts "cal_total: #{cal_total}"
 		#puts "cal_aux: #{cal_aux}"
 		#puts "gasto_en_total: #{gasto_en_total}"
