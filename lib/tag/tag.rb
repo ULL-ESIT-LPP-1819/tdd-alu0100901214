@@ -299,6 +299,11 @@ require "tag/version"
 		end
 		
 		def gasto_energetico_basal
+			if (sexo == 0)
+				(10*peso) + (6.25*talla) - (5*edad) -161
+			elsif(sexo == 1)
+				(10*peso) + (6.25*talla) - (5*edad) +5
+			end
 		end
 		
 		def efecto_termogeneo
