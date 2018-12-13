@@ -167,10 +167,10 @@ RSpec.describe List do
 	
 	it "Comprobación de que las instancias sean enumerables con listas de Personas" do
 		list_p = List.new
-		personA = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García")
-		personB = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García")
-		personC = Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García")
-		personD = Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García")
+		personA = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García",0)
+		personB = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García",0)
+		personC = Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García",0)
+		personD = Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García",0)
 		list_p.push_head(personA)
 		list_p.push_head(personB)
 		list_p.push_head(personC)
@@ -229,16 +229,16 @@ RSpec.describe Antrop do
 	end
 	
 	it "Crea un objeto Persona" do
-		expect((Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")).class).to eq(Person)
+		expect((Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García",0)).class).to eq(Person)
 	end
 	
 	it "Comprobación de si la Persona es paciente de la consulta" do 
-		person1 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		person1 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García",0)
 		expect(person1.es_paciente).to eq(true)
 	end
 	
 	it "Comprobación de si la Persona esta en tratamiento para la obesidad" do
-		@person2 = Person.new(120,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		@person2 = Person.new(120,1.74,20,0,89.8,102.1,"María","Rodriguez","García",0)
 		expect(@person2.tratamiento_obesidad).to eq(true)
 	end
 	
@@ -247,17 +247,17 @@ RSpec.describe Antrop do
 	end
 	
 	it "Comprobación del tipo de objeto" do
-		 @persona3 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García")
+		 @persona3 = Person.new(66,1.74,20,0,89.8,102.1,"María","Rodriguez","García",0)
 		 expect((@persona3).is_a?(Antrop)).to eq(true)
      expect((@persona3).is_a?(Person)).to eq(true)
 	end
 	
 	lista_personas = List.new
-	lista_personas.push_head(Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García"))
-	lista_personas.push_head(Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García"))
-	lista_personas.push_head(Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García"))
-	lista_personas.push_head(Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García"))
-	lista_personas.push_head(Person.new(90,1.85,28,0,89.8,93.2,"Laura","Rodriguez","García"))
+	lista_personas.push_head(Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García",0))
+	lista_personas.push_head(Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García",0))
+	lista_personas.push_head(Person.new(120,1.74,44,1,95.8,105.1,"Luis","Rodriguez","García",0))
+	lista_personas.push_head(Person.new(110,1.65,50,0,82.8,99.0,"Marta","Rodriguez","García",0))
+	lista_personas.push_head(Person.new(90,1.85,28,0,89.8,93.2,"Laura","Rodriguez","García",0))
 	
 	
 	it "Comprobamos el imc de María" do
@@ -285,14 +285,33 @@ RSpec.describe Antrop do
 	end
 	
 	it "Comprobación de que 2 Personas son comparables (usando todos los operadores)" do
-		persona_A = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García") # 26'87 A
-		persona_B = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García") # 21'97 B
+		persona_A = Person.new(95,1.88,20,0,89.8,102.1,"María","Rodriguez","García",0) # 26'87 A
+		persona_B = Person.new(65,1.72,22,1,80.8,80.1,"Pedro","Rodriguez","García",0) # 21'97 B
 		expect(persona_A==persona_B).to eq(false)
 		expect(persona_A<persona_B).to eq(false)
 		expect(persona_A<=persona_B).to eq(false)
 		expect(persona_A>persona_B).to eq(true)
 		expect(persona_A>=persona_B).to eq(true)
 	end
+end	
+	
+RSpec.describe Person do
+		
+		before :all do
+			@list_menu = List.new
+			@persona_A = Person.new(85,179,20,0,89.8,102.1,"María","Rodriguez","García",0)
+			@persona_B = Person.new(75,172,17,1,80.8,80.3,"Pedro","Rodriguez","García",1)
+			@persona_C = Person.new(65,182,44,0,80.5,80.1,"Carla","Delgado","García",2)
+			@persona_D = Person.new(65,172,17,1,80.8,80.1,"Juan","Rodriguez","Sanchez",2)
+			@persona_E = Person.new(55,152,12,1,80.8,80.1,"Jaime","Rodriguez","García",0)
+		end
+		
+		it "Comprobación del peso teórico ideal" do
+			expect(@persona_A.peso_teorico_ideal).to eq(78.5)
+		end
+		
+	
 	
 end
+	
 

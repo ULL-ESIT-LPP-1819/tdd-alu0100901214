@@ -188,7 +188,7 @@ require "tag/version"
 		# Método p_grasa que calcula el porcentaje en grasa
 		# @return [Float] devuelve el valor del cálculo del porcentaje en grasa
 		def p_grasa
-			(1.2*imc+0.23*@edad-10.8*@sexo-5.4).round(1)
+			(1.2*imc + 0.23*@edad - 10.8*@sexo - 5.4).round(1)
 		end
 		
 		# Método rcc que calcula la relación de la cintura/cadera
@@ -265,9 +265,9 @@ require "tag/version"
 		# @param nombre [String] Indica el nombre de la persona
 		# @param apellido1 [String] Indica el primer apellido de la persona
 		# @param apellido2 [String] Indica el segundo apellido de la persona
-		def initialize(peso, talla, edad, sexo, circ_cint, circ_cad, nombre, apellido1, apellido2)
+		def initialize(peso, talla, edad, sexo, circ_cint, circ_cad, nombre, apellido1, apellido2, actividad_fisica)
 			super(peso, talla, edad, sexo, circ_cint, circ_cad)
-			@nombre, @apellido1, @apellido2 = nombre, apellido1, apellido2
+			@nombre, @apellido1, @apellido2, @actividad_fisica = nombre, apellido1, apellido2, actividad_fisica
 		end
 		
 		#Método es_paciente indica si es paciente o no
@@ -290,8 +290,26 @@ require "tag/version"
 					false
 				end
 			elsif
-				false
+				false  
 			end
+		end
+		
+		def peso_teorico_ideal
+		end
+		
+		def gasto_energetico_basal
+		end
+		
+		def efecto_termogeneo
+		end
+		
+		def factor_de_actividad_fisica
+		end
+		
+		def gasto_actividad_fisica
+		end
+		
+		def gasto_energetico_total
 		end
 		
 		# Método to_s de la Persona
@@ -307,3 +325,4 @@ require "tag/version"
 			imc <=> other.imc
 		end
 	end
+	
