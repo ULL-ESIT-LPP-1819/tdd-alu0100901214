@@ -307,6 +307,7 @@ require "tag/version"
 		end
 		
 		def efecto_termogeneo
+			gasto_energetico_basal*0.10
 		end
 		
 		def factor_de_actividad_fisica
