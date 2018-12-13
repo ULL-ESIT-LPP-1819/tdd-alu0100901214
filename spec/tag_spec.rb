@@ -317,7 +317,10 @@ RSpec.describe Person do
 		it "Comprobacion del efecto termogeneo" do
 			expect(@persona_A.efecto_termogeneo).to eq(170.775)
 		end
-	
+		
+		it "Comprobacion del factor de actividad fisica" do
+			expect(@persona_A.factor_de_actividad_fisica).to eq(0.0)
+		end
 	
 end
 	
