@@ -311,6 +311,15 @@ require "tag/version"
 		end
 		
 		def factor_de_actividad_fisica
+			if(@actividad_fisica==0)
+				0.0
+			elsif(@actividad_fisica==1)
+				0.12
+			elsif(@actividad_fisica==2)
+				0.27
+			elsif(@actividad_fisica==3)
+				0.54
+			end
 		end
 		
 		def gasto_actividad_fisica
