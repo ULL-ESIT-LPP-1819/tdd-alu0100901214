@@ -323,6 +323,7 @@ require "tag/version"
 		end
 		
 		def gasto_actividad_fisica
+			gasto_energetico_basal*factor_de_actividad_fisica
 		end
 		
 		def gasto_energetico_total
