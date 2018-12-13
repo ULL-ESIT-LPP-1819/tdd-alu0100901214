@@ -34,7 +34,7 @@ require "tag/version"
 	  # Método cal que calcula el valor energético de un producto en Calorías
 	  # @return [Float] Devuelve el calculo del valor energético en (cal)
 	  def cal
-		(q_fats*9)+(hc*4)+(protein*4)+(salt*6)	
+		(q_fats*9)+(hc*4)+(protein*4)+(salt*6)
 	  end
 	  # Método kj_ir que calcula el porcentaje de la Ingesta de Referencia en Kilojulios
 	  # @return [Float] Devuelve el calculo del IR (kj)

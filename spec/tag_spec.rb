@@ -142,10 +142,6 @@ RSpec.describe List do
   	tagB = Nutrition.new("Taza_B",88,2,1.1,3,3,14,0.45)
   	tagC = Nutrition.new("Taza_C",78,2,1.4,2,4,15,0.43)
   	tagD = Nutrition.new("Taza_D",85,2,1.1,3,3,14,0.41)
-  	puts tagA.cal #100.76
-  	puts tagB.cal #88.7
-  	puts tagC.cal #88.58
-  	puts tagD.cal #88.46
   	list.push_head(tagA)
   	list.push_head(tagB)
   	list.push_head(tagC)
@@ -175,10 +171,6 @@ RSpec.describe List do
 		list_p.push_head(personB)
 		list_p.push_head(personC)
 		list_p.push_head(personD)
-		puts personA.imc #26.0
-		puts personB.imc #22.0
-		puts personC.imc #39.6
-		puts personD.imc #40.4
 		vec_aux_2 = []
 		list_p.each { |item| vec_aux_2.push(item.to_s)}
 		expect("#{vec_aux_2.to_s}").to eq("[\"40.4\", \"39.6\", \"22.0\", \"26.9\"]")
@@ -298,12 +290,21 @@ end
 RSpec.describe Person do
 		
 		before :all do
-			@list_menu = List.new
 			@persona_A = Person.new(85,179,20,0,89.8,102.1,"María","Rodriguez","García",0)
 			@persona_B = Person.new(75,172,17,1,80.8,80.3,"Pedro","Rodriguez","García",1)
 			@persona_C = Person.new(65,182,44,0,80.5,80.1,"Carla","Delgado","García",2)
 			@persona_D = Person.new(65,172,17,1,80.8,80.1,"Juan","Rodriguez","Sanchez",2)
 			@persona_E = Person.new(55,152,12,1,80.8,80.1,"Jaime","Rodriguez","García",0)
+			@sopa = Nutrition.new("Sopa",355,0.5,0.1,86,0,0.5,0.1)
+			@barra_de_dulce = Nutrition.new("Barra de dulce",360,21,13,44,41,0.7,0)
+			@manzana = Nutrition.new("Manzana",65,0,0,17,13,0,0)
+			@vino = Nutrition.new("Vino",360,0,0,0.3,0.1,0.23,0)
+			@loganiza_pollo = Nutrition.new("Loganiza de Pollo",277,23,6,2,0.1,15.6,2.4)
+			@menu_1 = [@sopa,@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+			@menu_2 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+			@menu_3 = [@sopa,@sopa,@loganiza_pollo,@manzana,@barra_de_dulce,@barra_de_dulce,@vino]
+			@menu_4 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+			@menu_5 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
 		end
 		
 		it "Comprobación del peso teórico ideal" do
@@ -329,6 +330,57 @@ RSpec.describe Person do
 		it "Comprobacion del gasto energetico total" do
 			expect(@persona_A.gasto_energetico_total).to eq(1878.525)
 		end
+		
+		it "Alimentación del menu 1 para la persona A" do
+			gasto_en_total = (@persona_A.gasto_energetico_total).round(1)
+			margen_de_error = (gasto_en_total*0.1).round(1)
+			gasto_con_margen_error = gasto_en_total - margen_de_error
+			cal_aux = @menu_1.collect{ |item| item.cal}
+			cal_total = cal_aux.reduce(:+).round(1)
+			expect(cal_total >= gasto_con_margen_error).to eq(true)
+		end
+		
+		it "Alimentación del menu 2 para la persona B" do
+			gasto_en_total = (@persona_B.gasto_energetico_total).round(1)
+			margen_de_error = (gasto_en_total*0.1).round(1)
+			gasto_con_margen_error = gasto_en_total - margen_de_error
+			cal_aux = @menu_2.collect{ |item| item.cal}
+			cal_total = cal_aux.reduce(:+).round(1)
+			expect(cal_total >= gasto_con_margen_error).to eq(true)
+		end
+		
+		it "Alimentación del menu 3 para la persona C" do
+			gasto_en_total = (@persona_C.gasto_energetico_total).round(1)
+			margen_de_error = (gasto_en_total*0.1).round(1)
+			gasto_con_margen_error = gasto_en_total - margen_de_error
+			cal_aux = @menu_3.collect{ |item| item.cal}
+			cal_total = cal_aux.reduce(:+).round(1)
+			expect(cal_total >= gasto_con_margen_error).to eq(true)
+		end
+		
+		it "Alimentación del menu 4 para la persona D" do
+			gasto_en_total = (@persona_D.gasto_energetico_total).round(1)
+			margen_de_error = (gasto_en_total*0.1).round(1)
+			gasto_con_margen_error = gasto_en_total - margen_de_error
+			cal_aux = @menu_4.collect{ |item| item.cal}
+			cal_total = cal_aux.reduce(:+).round(1)
+			expect(cal_total >= gasto_con_margen_error).to eq(true)
+		end
+		
+		it "Alimentación del menu 5 para la persona E" do
+			gasto_en_total = (@persona_E.gasto_energetico_total).round(1)
+			margen_de_error = (gasto_en_total*0.1).round(1)
+			gasto_con_margen_error = gasto_en_total - margen_de_error
+			cal_aux = @menu_5.collect{ |item| item.cal}
+			cal_total = cal_aux.reduce(:+).round(1)
+			expect(cal_total >= gasto_con_margen_error).to eq(true)
+		end
+		
+		#puts "cal_total: #{cal_total}"
+		#puts "cal_aux: #{cal_aux}"
+		#puts "gasto_en_total: #{gasto_en_total}"
+		#puts "margen_de_error: #{margen_de_error}"
+		#puts "gasto_con_margen_error: #{gasto_con_margen_error}"
 end
 	
 
