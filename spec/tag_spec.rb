@@ -307,7 +307,7 @@ RSpec.describe Person do
 		end
 		
 		it "Comprobación del peso teórico ideal" do
-			expect(@persona_A.peso_teorico_ideal).to eq(78.5)
+			expect(@persona_A.peso_teorico_ideal).to eq(71.75)
 		end
 		
 	

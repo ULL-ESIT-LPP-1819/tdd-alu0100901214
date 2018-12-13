@@ -295,6 +295,7 @@ require "tag/version"
 		end
 		
 		def peso_teorico_ideal
+			(talla - 150)*0.75 + 50
 		end
 		
 		def gasto_energetico_basal
