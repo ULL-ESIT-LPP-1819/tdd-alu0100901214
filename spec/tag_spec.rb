@@ -313,6 +313,10 @@ RSpec.describe Person do
 		it "Comprobacion del gasto energetico basal" do
 			expect(@persona_A.gasto_energetico_basal).to eq(1707.75)
 		end
+		
+		it "Comprobacion del efecto termogeneo" do
+			expect(@persona_A.efecto_termogeneo).to eq(170.775)
+		end
 	
 	
 end
