@@ -310,6 +310,9 @@ RSpec.describe Person do
 			expect(@persona_A.peso_teorico_ideal).to eq(71.75)
 		end
 		
+		it "Comprobacion del gasto energetico basal" do
+			expect(@persona_A.gasto_energetico_basal).to eq(1707.75)
+		end
 	
 	
 end
