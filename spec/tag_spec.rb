@@ -390,6 +390,16 @@ RSpec.describe Array do
 		@manzana = Nutrition.new("Manzana",65,0,0,17,13,0,0)
 		@vino = Nutrition.new("Vino",360,0,0,0.3,0.1,0.23,0)
 		@loganiza_pollo = Nutrition.new("Loganiza de Pollo",277,23,6,2,0.1,15.6,2.4)
+		@persona_A = Person.new(85,179,20,0,89.8,102.1,"María","Rodriguez","García",0)
+		@persona_B = Person.new(75,172,17,1,80.8,80.3,"Pedro","Rodriguez","García",1)
+		@persona_C = Person.new(65,182,44,0,80.5,80.1,"Carla","Delgado","García",2)
+		@persona_D = Person.new(65,172,17,1,80.8,80.1,"Juan","Rodriguez","Sanchez",2)
+		@persona_E = Person.new(55,152,12,1,80.8,80.1,"Jaime","Rodriguez","García",0)
+		@persona_F = Person.new(85,179,20,0,89.8,102.1,"María","Rodriguez","García",1)
+		@persona_G = Person.new(75,172,17,1,80.8,80.3,"Pedro","Rodriguez","García",1)
+		@persona_H = Person.new(65,182,44,0,80.5,80.1,"Carla","Delgado","García",0)
+		@persona_I = Person.new(65,172,17,1,80.8,80.1,"Juan","Rodriguez","Sanchez",1)
+		@persona_J = Person.new(55,152,12,1,80.8,80.1,"Jaime","Rodriguez","García",0)
 		@m1 = [@sopa,@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
 		@m2 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
 		@m3 = [@sopa,@sopa,@loganiza_pollo,@manzana,@barra_de_dulce,@barra_de_dulce,@vino]
@@ -400,12 +410,45 @@ RSpec.describe Array do
 		@m8 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@barra_de_dulce,@barra_de_dulce,@vino]
 		@m9 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
 		@m10 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+		
+		
 		@array_de_menus = [@m1,@m2,@m3,@m4,@m5,@m6,@m7,@m8,@m9,@m10]
 	end
 	
-	it "Array con elementos ordenados usando for" do
-		expect(@array_de_menus.for_ord).to eq([3223.6,3214.9,2872.5,2521.4,2453.4,2229.6,2161.6,2161.6,2091.5,1799.7])
+	Benchmark.bm do |item|
+	
+		it "Array con elementos ordenados usando for" do
+			copy = @array_de_menus.dup
+			@array_ordenado = []
+			a=0
+			item.report("for array:"){
+				for i in 0..@array_de_menus.size-1
+					for j in 0..copy.size-1
+						cal_aux_j = copy[j].collect{ |item| item.cal}
+						cal_total_j = cal_aux_j.reduce(:+).round(1)
+						cal_aux_a = copy[a].collect{ |item| item.cal}
+						cal_total_a = cal_aux_a.reduce(:+).round(1)
+						if cal_total_j < cal_total_a
+							a=j
+						end
+					end
+					@array_ordenado.push(copy[a])
+					copy.delete_at(a)
+					a=0
+				end
+			}
+			
+			expect(@array_ordenado).to eq([@m3,@m8,@m2,@m5,@m4,@m10,@m9,@m1,@m7,@m6])
+			#[3223.6,3214.9,2872.5,2521.4,2453.4,2229.6,2161.6,2161.6,2091.5,1799.7] (al revés)
+			
+		end
+		
+		
+		
+		
+		
 	end
+	
 	
 end
 
