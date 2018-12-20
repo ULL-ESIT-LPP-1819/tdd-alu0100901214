@@ -199,10 +199,6 @@ require "tag/version"
 		@copy
 	end
 	
-	def sort_ord
-		
-	end
-	
   end
 
 
