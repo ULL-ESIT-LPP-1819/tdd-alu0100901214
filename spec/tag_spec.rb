@@ -413,6 +413,17 @@ RSpec.describe Array do
 		
 		
 		@array_de_menus = [@m1,@m2,@m3,@m4,@m5,@m6,@m7,@m8,@m9,@m10]
+		@list_person = List.new
+		@list_person.push_head(@persona_J)
+		@list_person.push_head(@persona_I)
+		@list_person.push_head(@persona_H)
+		@list_person.push_head(@persona_G)
+		@list_person.push_head(@persona_F)
+		@list_person.push_head(@persona_E)
+		@list_person.push_head(@persona_D)
+		@list_person.push_head(@persona_C)
+		@list_person.push_head(@persona_B)
+		@list_person.push_head(@persona_A)
 	end
 	
 	Benchmark.bm do |item|
@@ -443,7 +454,9 @@ RSpec.describe Array do
 			
 		end
 		
-		
+		it "Lista con elementos ordenados usando for" do
+			expect(@list_person.for_ord).to eq([1547.2,1589.5,1589.5,1878.5,1926.9,2006.9,2083.5,2128.9,2128.9,2253.7])
+		end
 		
 		
 		

@@ -157,6 +157,11 @@ require "tag/version"
 			node = node.next
 		end
 	end
+	
+	def for_ord
+		
+	end
+	
   end
 
 
