@@ -474,7 +474,10 @@ RSpec.describe Array do
 			#expect(@array_ordenado).to eq([@m3,@m8,@m2,@m5,@m4,@m10,@m9,@m1,@m7,@m6])
 		#end
 		
-		
+		it "Lista de elementos usando sort" do 
+			expect(@list_person.sort_ord).to eq([1547.2,1589.5,1589.5,1878.5,1926.9,2006.9,2083.5,2128.9,2128.9,2253.7])
+			item.report("sort lista:"){ 1000.times do @list_person.sort_ord; end}
+		end
 		
 	end
 	
