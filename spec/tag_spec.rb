@@ -1,4 +1,5 @@
 require './lib/tag'
+require 'benchmark'
 
 RSpec.describe Tag do
 
@@ -375,11 +376,36 @@ RSpec.describe Person do
 			cal_total = cal_aux.reduce(:+).round(1)
 			expect(cal_total >= gasto_con_margen_error).to eq(true)
 		end
-		#puts "cal_total: #{cal_total}"
-		#puts "cal_aux: #{cal_aux}"
-		#puts "gasto_en_total: #{gasto_en_total}"
-		#puts "margen_de_error: #{margen_de_error}"
-		#puts "gasto_con_margen_error: #{gasto_con_margen_error}"
+		
 end
 	
+	
+RSpec.describe Array do
+	
+	
+	before :all do
+		
+		@sopa = Nutrition.new("Sopa",355,0.5,0.1,86,0,0.5,0.1)
+		@barra_de_dulce = Nutrition.new("Barra de dulce",360,21,13,44,41,0.7,0)
+		@manzana = Nutrition.new("Manzana",65,0,0,17,13,0,0)
+		@vino = Nutrition.new("Vino",360,0,0,0.3,0.1,0.23,0)
+		@loganiza_pollo = Nutrition.new("Loganiza de Pollo",277,23,6,2,0.1,15.6,2.4)
+		@m1 = [@sopa,@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+		@m2 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+		@m3 = [@sopa,@sopa,@loganiza_pollo,@manzana,@barra_de_dulce,@barra_de_dulce,@vino]
+		@m4 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+		@m5 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+		@m6 = [@sopa,@sopa,@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+		@m7 = [@sopa,@sopa,@sopa,@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+		@m8 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@manzana,@barra_de_dulce,@barra_de_dulce,@vino]
+		@m9 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@manzana,@vino,@vino,@barra_de_dulce,@barra_de_dulce]
+		@m10 = [@sopa,@sopa,@loganiza_pollo,@loganiza_pollo,@loganiza_pollo,@manzana,@manzana,@barra_de_dulce,@barra_de_dulce,@vino,@vino]
+		@array_de_menus = [@m1,@m2,@m3,@m4,@m5,@m6,@m7,@m8,@m9,@m10]
+	end
+	
+	it "Array con elementos ordenados usando for" do
+		expect(@array_de_menus.for_ord).to eq([3223.6,3214.9,2872.5,2521.4,2453.4,2229.6,2161.6,2161.6,2091.5,1799.7])
+	end
+	
+end
 
