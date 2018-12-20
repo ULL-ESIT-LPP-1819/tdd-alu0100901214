@@ -179,6 +179,24 @@ require "tag/version"
 	
 	def each_ord
 		@copy = self.collect{|item| item.gasto_energetico_total.round(1)}	
+		vector_aux = []
+		i=0
+		@copy.each do |item_a|
+			aux=item_a
+			i_a=i
+			j=i_a+1
+			@copy[j..@copy.length-1].each do |item_b|
+				if aux > item_b
+					aux = item_b
+					i_a=j
+				end
+				j+=1
+			end
+			@copy[i_a]=item_a
+			@copy[i]=aux
+			i+=1
+		end
+		@copy
 	end
 	
   end

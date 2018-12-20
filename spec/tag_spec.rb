@@ -467,13 +467,11 @@ RSpec.describe Array do
 		
 		it "Lista de elementos usando each" do
 			expect(@list_person.each_ord).to eq([1547.2,1589.5,1589.5,1878.5,1926.9,2006.9,2083.5,2128.9,2128.9,2253.7])
-			item.report("for lista:"){ 1000.times do @list_person.each_ord; end}
+			item.report("each lista:"){ 1000.times do @list_person.each_ord; end}
 		end
 		
 		#it "Array de elementos usando sort" do 
-			#item.report("sort array:"){
-			#	@array_ordenado=@array_de_menus.sort{ |x, y| x.nrg_value <=> y.nrg_value}
-			#}
+			#expect(@array_ordenado).to eq([@m3,@m8,@m2,@m5,@m4,@m10,@m9,@m1,@m7,@m6])
 		#end
 		
 		
