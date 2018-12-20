@@ -159,7 +159,22 @@ require "tag/version"
 	end
 	
 	def for_ord
-		
+		@copy = self.collect{|item| item.gasto_energetico_total.round(1)}
+		vector_aux = []
+		vector_aux.push(@copy[0])
+		for i in (1..@size-1)
+			aux=@copy[i]
+			for j in (0..i)
+				if(vector_aux[j]>=aux)
+					vector_aux.insert(j,aux)
+					break
+				elsif(vector_aux[vector_aux.size-1] <= aux)
+					vector_aux.push(aux)
+					break
+				end
+			end
+		end
+		vector_aux
 	end
 	
   end
