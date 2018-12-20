@@ -177,6 +177,10 @@ require "tag/version"
 		vector_aux
 	end
 	
+	def each_ord
+		@copy = self.collect{|item| item.gasto_energetico_total.round(1)}	
+	end
+	
   end
 
 
