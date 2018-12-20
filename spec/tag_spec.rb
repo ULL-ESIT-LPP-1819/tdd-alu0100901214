@@ -470,8 +470,8 @@ RSpec.describe Array do
 			item.report("each lista:"){ 1000.times do @list_person.each_ord; end}
 		end
 		
-		#it "Array de elementos usando sort" do 
-			#expect(@array_ordenado).to eq([@m3,@m8,@m2,@m5,@m4,@m10,@m9,@m1,@m7,@m6])
+		#it "Array de elementos usando sort" do
+		#	expect(@array_de_menus.collect{|item| item.collect{|item_a| item_a.gasto_energetico_total.round(1)}}.sort).to eq([@m6,@m7,@m1,@m9,@m10,@m4,@m5,@m2,@m8,@m3])
 		#end
 		
 		it "Lista de elementos usando sort" do 
