@@ -281,6 +281,7 @@ require "tag/version"
 			end
 		end
 		
+		
 		# Método to_s de la Antropometría
     	# @return [String] imc
 		def to_s
